@@ -2,3 +2,20 @@
     height: 200px;
     width: 100%;
 }
+
+.card-lower{
+    display: flex;
+    justify-content: space-between;
+}
+
+hr{
+    width: 100% !important;
+}
+.card-body{
+    padding-left:0 !important;
+    padding-right: 0 !important;
+}
+.card-text, .card-lower{
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+}
