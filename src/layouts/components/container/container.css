@@ -1,9 +1,11 @@
 .container-main{
-    height: 100vh;
-    /* background-color: bisque; */
-    margin-top: 50px;
+    background-color: #F7F8FA;
+    margin-top: 100px;
+    max-width: 1200px;
 }
 
-.container-main .row{
-    /* background-color: blue; */
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }

@@ -6,7 +6,7 @@ import Card from "../products/card/card"
 const container = () =>{
     
     return(
-        <div className="container-xl p-2 container-main">
+        <div className="container-xl container-main">
             <div class="row g-5">
                 <Card/>
             </div>

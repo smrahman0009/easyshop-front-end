@@ -1,0 +1,27 @@
+.footer-main{
+    margin-top:50px !important;
+    max-width: 1400px;
+    margin: 0px auto;
+    background-color: #333E4F;
+    color: rgba(255, 255, 255, 0.808);
+    margin-bottom: -15px !important;
+}
+.footer-top{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:flex-start;
+    padding-top: 50px !important;
+    padding: 10px;
+}
+.footer-content{
+    text-align: center;
+}
+ul li{
+    list-style-type: none;
+}
+.footer-bottom{
+    text-align: center;
+    padding: 5px 0px;
+}
