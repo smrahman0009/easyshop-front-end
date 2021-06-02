@@ -10,13 +10,13 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items:flex-start;
     padding-top: 50px !important;
     padding: 10px;
 }
 .footer-content{
-    text-align: center;
+    text-align: left;
 }
 ul li{
     list-style-type: none;

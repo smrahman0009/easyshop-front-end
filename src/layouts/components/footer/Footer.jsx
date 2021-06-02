@@ -2,22 +2,22 @@ import "./Footer.css"
 const Footer=()=>{
     return(
 
-    <div className="footer-main">
+    <div className="footer-main container-xl">
         <div className="footer-top">
             <div className="footer-content">
                 <h4>Download</h4>
                 <hr />
-                <p>Lorem ipsum dolor sit amet</p>
+                <p>Lorem ipsum dolor sit amet dizaska sazaka</p>
             </div>
             <div className="footer-content">
                 <h4>Menu</h4>
                 <hr />
-                <ul>
-                    <li>Privacy Policy</li>
-                    <li>Cookie Policy</li>
-                    <li>Terms & Conditions</li>
-                    <li>Purchase Policy</li>
-                </ul>
+                
+                    <p>Privacy Policy</p>
+                    <p>Cookie Policy</p>
+                    <p>Terms & Conditions</p>
+                    <p>Purchase Policy</p>
+                
             </div>
             <div className="footer-content">
                 <h4>Contact Us</h4>

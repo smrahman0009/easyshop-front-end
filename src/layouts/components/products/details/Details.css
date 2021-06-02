@@ -1,0 +1,108 @@
+.product-details{
+margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  max-width: 1200px;
+  min-width: 320px;
+  background-color: rgba(0, 0, 0, 0.103);
+  justify-content: space-around;
+}
+
+.details-img{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    /* max-width: 300px; */
+}
+
+.img-main img{
+    width: 400px;
+    min-width: 300px
+}
+.img-sub{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: baseline;
+    padding: 10px;
+}
+
+.img-sub img{
+    height: 150px;
+    width: 150px;
+    /* padding: 10px; */
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+}
+
+.btn-quantity{
+    background-color: white;
+}
+
+/* ---------------------------------------------------- */
+.details-des{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    max-height: 600px;
+}
+.details-des-top *{
+    /* border: 1px solid rgba(0, 0, 0, 0.103); */
+    padding: 0px 0px;
+    margin: 10px;
+}
+
+.details-des-bottom *{
+    border: 1px solid rgba(0, 0, 0, 0.103);
+    margin: 10px;
+}
+.product-name{
+    color: rgba(74,85,104,var(--text-opacity));
+    letter-spacing: 2px;
+    line-height: 1.5 !important;
+}
+.product-brand{
+    font-size: 14px;
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.473);
+}
+.price-icon{
+    color: rgba(0, 0, 0, 0.473);
+}
+.price-amount{
+    font-style: italic;
+}
+.price-icon,.price-amount{
+    margin: 5px !important;
+}
+
+.price-amount{
+    font-size: 24px;
+}
+.product-checkout{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    padding: 5px 10px;
+    border-radius: 50px;
+    background-color: tomato;
+}
+.product-checkout *{
+    border-style: none !important;
+    color: white;
+    /* font-weight: bold; */
+    line-height: 1.2;
+    font-size: 20px;
+}
