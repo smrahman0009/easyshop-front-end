@@ -1,0 +1,14 @@
+.cart-container{
+    height: 400px;
+    width: 300px;
+    left: 5%;
+    top: 70px;
+    background-color: #f9614683;
+    position: absolute;
+    transform: translateX(-700px);
+    z-index: 2;
+}
+
+.cart-container-show{
+    transform: translateX(0px);
+}
