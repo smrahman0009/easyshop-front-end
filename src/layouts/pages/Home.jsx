@@ -7,12 +7,14 @@ import Container from "../components/container/container";
 import Footer from "../components/footer/Footer";
 import Details from "../components/products/details/Details"
 import Cart from "../components/products/cart/Cart"
+import Cover from "../components/products/cart/Cover";
 
 const Home=()=>{
     return (
         <>
         <Navbar/>
         <Cart/>
+        <Cover/>
         <Switch>
             <Route exact path="/">
                 <Carousel/>
