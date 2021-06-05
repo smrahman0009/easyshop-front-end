@@ -7,14 +7,14 @@ import Container from "../components/container/container";
 import Footer from "../components/footer/Footer";
 import Details from "../components/products/details/Details"
 import Cart from "../components/products/cart/Cart"
-import Cover from "../components/products/cart/Cover";
+import Login from "../components/login/Login";
 
 const Home=()=>{
     return (
         <>
         <Navbar/>
+        <Login/>
         <Cart/>
-        {/* <Cover/> */}
         <Switch>
             <Route exact path="/">
                 <Carousel/>

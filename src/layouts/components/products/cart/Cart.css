@@ -1,6 +1,6 @@
 .cart-container{
     z-index: 3;
-    overflow: auto;
+    /* overflow: auto; */
     position: fixed;
     left: 5%;
     top: 70px;
@@ -24,6 +24,10 @@
     flex-direction: row;
     justify-content: flex-end;
     padding: 20px;
+}
+
+.cart-header-icon{
+    cursor: pointer;
 }
 
 .cart-header h4{
