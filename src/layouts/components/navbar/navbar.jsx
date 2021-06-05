@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Navbar=()=>{
   
   const showCart=()=>{
-    document.querySelector(".cover-container").classList.toggle("cover-container-show")
+    // document.querySelector(".cover-container").classList.toggle("cover-container-show")
     document.querySelector(".cart-container").classList.toggle("cart-container-show")
     
   }

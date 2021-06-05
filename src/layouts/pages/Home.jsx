@@ -14,7 +14,7 @@ const Home=()=>{
         <>
         <Navbar/>
         <Cart/>
-        <Cover/>
+        {/* <Cover/> */}
         <Switch>
             <Route exact path="/">
                 <Carousel/>
