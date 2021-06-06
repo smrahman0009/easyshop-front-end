@@ -1,8 +1,12 @@
 import "./Login.css"
-import {useHistory} from "react-router-dom"
+import {useHistory } from "react-router";
+
 const Login =()=>{
     const history = useHistory()
-
+    const accountCrate=()=>{
+        document.querySelector(".login-container").classList.toggle("login-container-show")
+        return history.push("/account/create/")
+    }
     return(
         <div className="login-container">
             <div className="login-header"><h5>Login</h5></div>
@@ -16,7 +20,7 @@ const Login =()=>{
             </form>
             <div className="login-extra">
                 <p>
-                Don't have an account? <a href="" onClick={()=>history.push("/user/auth/create")}>Sign up</a>
+                Don't have an account? <a href=""onClick={accountCrate}>Sign up</a>
                 </p>
                 <p>
                     <a href="">

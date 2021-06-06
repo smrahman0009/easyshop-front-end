@@ -1,0 +1,28 @@
+.crate-user-container{
+    background-color: #9EC2C6;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 10px;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.create-user-form form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.create-user-form form input{
+    padding: 10px  20px;
+    border-radius: 5px;
+}
+
+.create-user-form form input[type=submit]{
+    margin-top: 20px;
+   background-color: #F96246;
+   color: white;
+}
