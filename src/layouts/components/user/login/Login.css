@@ -29,6 +29,10 @@
 .login-form form input:focus{
     border-style: none;
 }
+
+.login-submit{
+    
+}
 .login-extra{
     margin-top: 20px;
 }

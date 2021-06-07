@@ -12,7 +12,7 @@ const Login =()=>{
                 <input type="text" id="mail-phone-num" name="mail_phone_num"/>
                 <label for="user-password">Password</label>
                 <input type="password" id="user-password" name="user_password"/>
-                <input type="submit" value="Submit"/>
+                <input className="login-submit" type="submit" value="Submit"/>
             </form>
             <div className="login-extra">
                 <p>
