@@ -1,10 +1,13 @@
 .login-container{
     position: absolute;
-    top: 70px;
-    left: 100px;
+    top: 60px;
+    right: 2px;
     display: none;
     padding: 10px;
     background-color: rgba(15, 155, 155, 0.842);
+}
+.login-submit{
+    background-color: #F96246;
 }
 
 .login-container-show{
