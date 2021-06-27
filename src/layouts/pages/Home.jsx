@@ -10,6 +10,7 @@ import Cart from "../components/products/cart/Cart"
 import Login from "../components/login/Login";
 import Create from "../components/user/create/Create"
 import SignUp from "../components/user/signup/SignUp"
+import Services from "../components/services/Services"
 const Home=()=>{
     return (
         <>
@@ -19,6 +20,7 @@ const Home=()=>{
         <Switch>
             <Route exact path="/">
                 <Carousel/>
+                <Services/>
                 <Container/>
             </Route>
             <Route path="/details/">

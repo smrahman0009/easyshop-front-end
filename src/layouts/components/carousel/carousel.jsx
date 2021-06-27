@@ -1,7 +1,7 @@
 import React from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./carousel.css"
-import mobile_crl_1 from "../../../assets/mobile_crl_1.jpg"
+import mobile_crl_1 from "../../../assets/mobile_crl_1.jpeg"
 import mobile_crl_2 from "../../../assets/mobile_crl_2.jpg"
 import mobile_crl_3 from "../../../assets/mobile_crl_3.jpg"
 
