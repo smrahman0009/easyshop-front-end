@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router";
 
 import Navbar from "../components/navbar/navbar";
 import Carousel from "../components/carousel/carousel";
-import Container from "../components/container/container";
+import ProductList from "../components/productList/ProductList";
 import Footer from "../components/footer/Footer";
 import Details from "../components/products/details/Details"
 import Cart from "../components/products/cart/Cart"
@@ -21,7 +21,7 @@ const Home=()=>{
             <Route exact path="/">
                 <Carousel/>
                 <Services/>
-                <Container/>
+                <ProductList/>
             </Route>
             <Route path="/details/">
                 <Details/>
