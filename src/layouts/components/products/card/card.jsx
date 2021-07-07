@@ -1,17 +1,13 @@
 import React from "react"
-import stripHtml from 'string-strip-html';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./card.css";
 import "../../../../assets/fontawesome/FontAwesome"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import gallery_item_3 from "../../../../assets/gallery_item_3.jpeg"
 import { Route, Switch, useHistory } from "react-router";
 
 
 const Card=(props)=>{
     const {product} = props
-    console.log("in Card",product.name)
-    // const { description } = stripHtml(product.description);
     const history = useHistory() 
     return (
         <div className="card">

@@ -18,7 +18,6 @@ const Cart=()=>{
     }
 
     const count = useSelector((state)=>state.counter.count)
-    console.log(count)
     const showCart=()=>{
         document.querySelector(".cart-container").classList.toggle("cart-container-show")
         
