@@ -10,6 +10,8 @@ function App() {
     dispatch(getProductList())
   },[dispatch])
   const productList = useSelector((state)=>state.productList.productList)
+  const cartItem = useSelector((state)=>state.cartItem.cartItem)
+  // console.log(cartItem,"In App")
   // console.log("In App => ",productList)
   return (
     <div className="App">

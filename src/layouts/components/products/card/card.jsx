@@ -4,8 +4,9 @@ import "./card.css";
 import "../../../../assets/fontawesome/FontAwesome"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Route, Switch, useHistory } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setProduct } from "../../../../redux/ducks/Product";
+import { setCartItem } from "../../../../redux/ducks/CartItem";
 
 
 const Card=(props)=>{
@@ -13,9 +14,12 @@ const Card=(props)=>{
     const history = useHistory() 
     const dispatch = useDispatch()
     const productDetails=()=>{
-        history.push("/details/")
-        dispatch(setProduct(product))
+        // history.push("/details/")
+        // dispatch(setProduct(product))
+        dispatch(setCartItem(product))
     }
+    // const cartItem = useSelector((state)=>state.cartItem.cartItem)
+    // console.log(cartItem)
     return (
         <div className="card">
             <div className="card-image" onClick={productDetails}>
