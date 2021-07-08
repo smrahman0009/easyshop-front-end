@@ -22,6 +22,8 @@ const Cart=()=>{
         document.querySelector(".cart-container").classList.toggle("cart-container-show")
         
       }
+    const cartItems = useSelector(state=>state.cartItem.cartItem)
+    console.log(cartItems)
     return(
         
         <div className="cart-container">
@@ -31,30 +33,22 @@ const Cart=()=>{
                     <FontAwesomeIcon icon="times" size="2x"></FontAwesomeIcon>
                 </div>
             </div>
-           <div className="cart-product">
-               <img src={item_gallery_1} alt="" />
-               <div className="cart-product-info">
-                   <p>  Amazfit T-Rex W1919US5N Smart Watch - Black</p>
-                   <div className="pdt-qnty">
-                    <button onClick={handleDecrement}>-</button>
-                     <input type="number" name="cart_pdt" id="cart-pdt" min="1" max="9" value={count}/>
-                     <button onClick={handleIncrement}>+</button>
-                   </div>
-               </div>
-               <div className="pdt-remove"><FontAwesomeIcon icon="trash-alt" className="checkout-icon" size="2x"/></div>
-           </div>
-           <div className="cart-product">
-               <img src={item_gallery_1} alt="" />
-               <div className="cart-product-info">
-                   <p>  Amazfit T-Rex W1919US5N Smart Watch - Black</p>
-                   <div className="pdt-qnty">
-                    <button onClick={handleDecrement}>-</button>
-                     <input type="number" name="cart_pdt" id="cart-pdt" min="1" max="9" value={count}/>
-                     <button onClick={handleIncrement}>+</button>
-                   </div>
-               </div>
-               <div className="pdt-remove"><FontAwesomeIcon icon="trash-alt" className="checkout-icon" size="2x"/></div>
-           </div>
+            {
+                cartItems.map(item=>(
+                    <div className="cart-product">
+                        <img src={item.media.source} alt="" />
+                        <div className="cart-product-info">
+                            <p>{item.name}</p>
+                            <div className="pdt-qnty">
+                                <button onClick={handleDecrement}>-</button>
+                                <input type="number" name="cart_pdt" id="cart-pdt" min="1" max="9" value={count}/>
+                                <button onClick={handleIncrement}>+</button>
+                            </div>
+                        </div>
+                        <div className="pdt-remove"><FontAwesomeIcon icon="trash-alt" className="checkout-icon" size="2x"/></div>
+                    </div>
+                ))
+            }
         </div>
     )
 }
