@@ -5,8 +5,11 @@ import "../../../../assets/fontawesome/FontAwesome"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import item_gallery_1 from "../../../../assets/item_gallery_1.png"
+import { useSelector } from "react-redux";
 
 const Details =()=>{
+    const product = useSelector((state)=>state.product.product)
+    console.log(product,"<= Details")
     return(
         <div className="product-details">
             <div className="details-img">

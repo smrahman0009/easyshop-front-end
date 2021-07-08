@@ -2,11 +2,13 @@ import createSagaMiddleware from "@redux-saga/core";
 import { combineReducers, createStore,applyMiddleware } from "redux";
 import counterReducer from "./ducks/Counter"
 import productListReducer from "./ducks/ProductList"
+import productReducer from "./ducks/Product"
 import { watcherSaga } from "./sagas/rootSaga";
 
 const reducer = combineReducers({
     counter: counterReducer,
-    productList:productListReducer
+    productList:productListReducer,
+    product:productReducer
 })
 
 const sagaMiddleware = createSagaMiddleware()

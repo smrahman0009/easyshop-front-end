@@ -10,7 +10,7 @@ function App() {
     dispatch(getProductList())
   },[dispatch])
   const productList = useSelector((state)=>state.productList.productList)
-  console.log("In App => ",productList)
+  // console.log("In App => ",productList)
   return (
     <div className="App">
       <Home/>

@@ -4,14 +4,21 @@ import "./card.css";
 import "../../../../assets/fontawesome/FontAwesome"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Route, Switch, useHistory } from "react-router";
+import { useDispatch } from "react-redux";
+import { setProduct } from "../../../../redux/ducks/Product";
 
 
 const Card=(props)=>{
     const {product} = props
     const history = useHistory() 
+    const dispatch = useDispatch()
+    const productDetails=()=>{
+        history.push("/details/")
+        dispatch(setProduct(product))
+    }
     return (
         <div className="card">
-            <div className="card-image" onClick={()=>history.push("/details/")}>
+            <div className="card-image" onClick={productDetails}>
                 <img src={product.media.source} className="card-img-top card-image" alt={product.name}/>
             </div>
             <div className="card-body">

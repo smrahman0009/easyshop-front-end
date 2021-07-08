@@ -14,6 +14,7 @@ const ProductList = () =>{
     useEffect(()=>{
         fetchProducts()
     },[])
+    // console.log(products)
     return(
         <div className="container-xl container-main">
             <div class="row g-5">
