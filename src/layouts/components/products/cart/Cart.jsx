@@ -1,29 +1,29 @@
+import React from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "../../../../redux/ducks/Counter";
-
-import "./Cart.css"
 import "../../../../assets/fontawesome/FontAwesome"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import item_gallery_1 from "../../../../assets/item_gallery_1.png"
+import "./Cart.css"
+import Item from "./Item"
+import { useEffect } from "react";
+import { getItemUpdate } from "../../../../redux/ducks/CartItem";
+
 const Cart=()=>{
     const dispatch = useDispatch()
 
-    const handleIncrement = () => {
-        dispatch(increment());
-    }
-    
-    const handleDecrement = () => {
-        dispatch(decrement());
-    }
-
-    const count = useSelector((state)=>state.counter.count)
     const showCart=()=>{
         document.querySelector(".cart-container").classList.toggle("cart-container-show")
-        
-      }
+    }
+    
+    
     const cartItems = useSelector(state=>state.cartItem.cartItem)
-    console.log(cartItems)
+    
+    useEffect(()=>{
+        if(cartItems.length>0){
+            dispatch(getItemUpdate())
+        }
+    })
+    console.log("CART: ",cartItems.length,cartItems)
     return(
         
         <div className="cart-container">
@@ -34,20 +34,9 @@ const Cart=()=>{
                 </div>
             </div>
             {
-                cartItems.map(item=>(
-                    <div className="cart-product">
-                        <img src={item.media.source} alt="" />
-                        <div className="cart-product-info">
-                            <p>{item.name}</p>
-                            <div className="pdt-qnty">
-                                <button onClick={handleDecrement}>-</button>
-                                <input type="number" name="cart_pdt" id="cart-pdt" min="1" max="9" value={count}/>
-                                <button onClick={handleIncrement}>+</button>
-                            </div>
-                        </div>
-                        <div className="pdt-remove"><FontAwesomeIcon icon="trash-alt" className="checkout-icon" size="2x"/></div>
-                    </div>
-                ))
+            cartItems.map(item=>(
+                 <Item item={item}/>
+            ))
             }
         </div>
     )

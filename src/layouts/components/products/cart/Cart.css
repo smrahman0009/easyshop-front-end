@@ -99,5 +99,6 @@ input[type=number] {
 .pdt-remove{
     margin: auto 10px;
     padding-bottom: 10px;
+    cursor:pointer;
     /* border: 1px solid black; */
 }
