@@ -1,6 +1,7 @@
 .card{
     max-width: 250px;
     background-color: white;
+    cursor: pointer;
 }
 
 .card-image{

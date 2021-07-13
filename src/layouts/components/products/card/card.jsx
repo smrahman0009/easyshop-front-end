@@ -10,7 +10,7 @@ import { setCartItem } from "../../../../redux/ducks/CartItem";
 
 
 const Card=(props)=>{
-    const {product} = props
+    const {product,addProductToCart} = props
     const history = useHistory() 
     const dispatch = useDispatch()
     const productDetails=()=>{
@@ -29,7 +29,7 @@ const Card=(props)=>{
                 <p className="card-text">{product.description.replace(/<[^>]*>?/gm, '')}</p>
                 <hr/>
                 <div className="card-lower">
-                    <FontAwesomeIcon icon="cart-plus" size="lg"/>
+                    <FontAwesomeIcon icon="cart-plus" size="lg" onClick={()=>addProductToCart(product)}/>
                     <h6 className="card-title">{product.price.formatted_with_symbol}</h6>
                 </div>
             </div>

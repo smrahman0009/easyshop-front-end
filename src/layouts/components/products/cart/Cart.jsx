@@ -5,25 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import "./Cart.css"
 import Item from "./Item"
-import { useEffect } from "react";
-import { getItemUpdate } from "../../../../redux/ducks/CartItem";
 
-const Cart=()=>{
-    const dispatch = useDispatch()
-
+const Cart=(props)=>{
+    const {cartItems,removeProductFromCart} = props
+    console.log(props,"Prosps")
     const showCart=()=>{
         document.querySelector(".cart-container").classList.toggle("cart-container-show")
     }
     
-    
-    const cartItems = useSelector(state=>state.cartItem.cartItem)
-    
-    useEffect(()=>{
-        if(cartItems.length>0){
-            dispatch(getItemUpdate())
-        }
-    })
-    console.log("CART: ",cartItems.length,cartItems)
+
+    console.log("Cart",cartItems)
     return(
         
         <div className="cart-container">
@@ -35,7 +26,7 @@ const Cart=()=>{
             </div>
             {
             cartItems.map(item=>(
-                 <Item item={item}/>
+                 <Item item={item} removeProductFromCart={removeProductFromCart}/>
             ))
             }
         </div>

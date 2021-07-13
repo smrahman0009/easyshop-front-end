@@ -18,7 +18,7 @@ input[type=number] {
     min-height: 400px;
     width: 80vw;
     min-width: 280px;
-    background-color: #2b86925d;
+    background-color: white;
     transform: translateX(-180vw);
     transition: transform 0.5s ease-in-out;
 }
