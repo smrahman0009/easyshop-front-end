@@ -20,9 +20,11 @@ const Item = (props) =>{
 
   
     let CartItem = <div className="cart-product">
-        <img src={item.media.source} alt="" />
+        <div className="cart-product-media">
+            <img src={item.media.source} alt="" />
+            <p>{item.name}</p>
+        </div>
             <div className="cart-product-info">
-                <p>{item.name}</p>
                 <div className="pdt-qnty">
                     <button onClick={()=>handleDecrement(item)}>-</button>
                     <input type="number" name="cart_pdt" id="cart-pdt" min="1" max="9" value={count}/>

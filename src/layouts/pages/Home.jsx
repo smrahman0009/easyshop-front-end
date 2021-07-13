@@ -26,9 +26,9 @@ const Home=()=>{
     
     const [cartItems,setCartItems] = React.useState([])
     const addProductToCart=(item)=>{
-        const index = cartItems.indexOf(item)
-        console.log(index)
-        if(index === -1){setCartItems(cartItems.concat(item))}
+        const flag = cartItems.includes(item)
+        console.log(flag)
+        if(!flag){setCartItems(cartItems.concat(item))}
       
     }
     const removeProductFromCart=(item)=>{
