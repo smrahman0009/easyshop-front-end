@@ -8,13 +8,12 @@ import Item from "./Item"
 
 const Cart=(props)=>{
     const {cartItems,removeProductFromCart} = props
-    console.log(props,"Prosps")
+  
     const showCart=()=>{
         document.querySelector(".cart-container").classList.toggle("cart-container-show")
     }
     
 
-    console.log("Cart",cartItems)
     return(
         
         <div className="cart-container">

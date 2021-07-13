@@ -24,19 +24,17 @@ const Home=()=>{
         fetchProducts()
     },[])
     
-    const testPass=(par)=>{
-        console.log("Hello Cats: ",par)
-    }
-    
     const [cartItems,setCartItems] = React.useState([])
     const addProductToCart=(item)=>{
-        // console.log("Home",item)
-        setCartItems(cartItems.concat(item))
+        const index = cartItems.indexOf(item)
+        console.log(index)
+        if(index === -1){setCartItems(cartItems.concat(item))}
+      
     }
     const removeProductFromCart=(item)=>{
-        setCartItems([])
+        setCartItems(cartItems.filter(cartItem=> item !== cartItem))
     }
-    console.log("Home",cartItems)
+
     return (
         <>
         <Navbar/>
