@@ -90,9 +90,17 @@ input[type=number] {
     color: white;
     font-weight: bold;
     border: none;
-    padding: 5px 10px;
+    padding: 0px 15px;
     font-size: 20px;
-    border-radius: 50%;
+}
+.pdt-qnty input{
+    margin: auto;
+    font-size: 16px;
+}
+.pdt-qnty p{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 25px;
 }
 .cart-product-info p{
     max-width: 250px;
