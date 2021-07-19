@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router";
 import { commerce } from "../../lib/Commerce";
 import { useEffect } from "react";
-
+import { incTotalPrice } from "../../redux/ducks/TotalPrice";
 import Navbar from "../components/navbar/navbar";
 import Carousel from "../components/carousel/carousel";
 import ProductList from "../components/productList/ProductList";
@@ -13,9 +13,10 @@ import Login from "../components/login/Login";
 import Create from "../components/user/create/Create"
 import SignUp from "../components/user/signup/SignUp"
 import Services from "../components/services/Services"
+import { useDispatch } from "react-redux";
 const Home=()=>{
     const [products,setProducts] = React.useState([])
-    
+    const dispatch = useDispatch()
     const fetchProducts = async () => {
         const {data} = await commerce.products.list()
         setProducts(data)
@@ -27,8 +28,10 @@ const Home=()=>{
     const [cartItems,setCartItems] = React.useState([])
     const addProductToCart=(item)=>{
         const flag = cartItems.includes(item)
-        console.log(flag)
-        if(!flag){setCartItems(cartItems.concat(item))}
+        if(!flag){
+            setCartItems(cartItems.concat(item))
+            dispatch(incTotalPrice(item.price.raw))
+        }
       
     }
     const removeProductFromCart=(item)=>{

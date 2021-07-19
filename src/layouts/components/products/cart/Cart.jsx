@@ -13,7 +13,8 @@ const Cart=(props)=>{
         document.querySelector(".cart-container").classList.toggle("cart-container-show")
     }
     
-
+    const totalPrice = useSelector((state)=>state.totalPrice.price)
+    console.log(totalPrice)
     return(
         
         <div className="cart-container">
@@ -28,6 +29,7 @@ const Cart=(props)=>{
                  <Item item={item} removeProductFromCart={removeProductFromCart}/>
             ))
             }
+            <input type="text" id="totall-price" value={totalPrice}/>
         </div>
     )
 }
