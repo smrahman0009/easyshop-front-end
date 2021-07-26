@@ -12,13 +12,13 @@ const Item = (props) =>{
     const [count,setCount] = React.useState(1) 
     const handleIncrement = (price) => {
        setCount(count+1)
-       dispatch(incTotalPrice(count*price))
+       dispatch(incTotalPrice(price))
     }
     
     const handleDecrement = (price) => {
         if(count>1){
             setCount(count-1)
-            dispatch(decTotalPrice(count*price))
+            dispatch(decTotalPrice(price))
         }
     }
 
@@ -38,7 +38,7 @@ const Item = (props) =>{
                     <input type="text" className="total-price" value={count*item.price.raw} disabled/>
                 </div>
             </div>
-        <div className="pdt-remove" onClick={()=>removeProductFromCart(item)}><FontAwesomeIcon icon="trash-alt" className="checkout-icon" size="2x"/></div>
+        <div className="pdt-remove" onClick={()=>removeProductFromCart(item,count*item.price.raw)}><FontAwesomeIcon icon="trash-alt" className="checkout-icon" size="2x"/></div>
         </div>
    
     return(

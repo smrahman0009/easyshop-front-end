@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router";
 import { commerce } from "../../lib/Commerce";
 import { useEffect } from "react";
-import { incTotalPrice } from "../../redux/ducks/TotalPrice";
+import { decTotalPrice, incTotalPrice } from "../../redux/ducks/TotalPrice";
 import Navbar from "../components/navbar/navbar";
 import Carousel from "../components/carousel/carousel";
 import ProductList from "../components/productList/ProductList";
@@ -34,8 +34,9 @@ const Home=()=>{
         }
       
     }
-    const removeProductFromCart=(item)=>{
+    const removeProductFromCart=(item,totalPrice)=>{
         setCartItems(cartItems.filter(cartItem=> item !== cartItem))
+        dispatch(decTotalPrice(totalPrice))
     }
 
     return (

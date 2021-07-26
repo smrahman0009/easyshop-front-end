@@ -29,7 +29,11 @@ const Cart=(props)=>{
                  <Item item={item} removeProductFromCart={removeProductFromCart}/>
             ))
             }
-            <input type="text" id="totall-price" value={totalPrice}/>
+            <div className="cart-totall-price">
+
+                <label for="totall-price"><h6>Total Price</h6></label>
+                <input type="text" id="totall-price" value={`$${totalPrice}`} disabled/>
+            </div>
         </div>
     )
 }

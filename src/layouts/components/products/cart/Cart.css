@@ -21,10 +21,24 @@ input[type=number] {
     background-color: white;
     transform: translateX(-180vw);
     transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
-.cart-container input{
-    position: relative;
-    right: 5px;
+.cart-totall-price{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 560px;
+    margin: 0px auto;
+}
+.cart-totall-price * {
+    display: block;
+    padding: 10px 50px;
+}
+.cart-totall-price input {
+    border-style: none;
 }
 .cart-container-show{
     transform: translateX(0px);
@@ -128,4 +142,10 @@ input[type=number] {
     /* .cart-container{
         width: 360px !important;
     } */
+}
+@media (max-width:680px){
+    .cart-totall-price * {
+        display: block;
+        padding: 10px;
+    }
 }
