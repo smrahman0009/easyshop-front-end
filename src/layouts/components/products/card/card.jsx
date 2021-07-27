@@ -10,7 +10,7 @@ import { setCartItem } from "../../../../redux/ducks/CartItem";
 
 
 const Card=(props)=>{
-    const {product,addProductToCart} = props
+    const {product,addProductToCart,isAddedToCart,removeProductFromCart} = props
     const history = useHistory() 
     const dispatch = useDispatch()
     const productDetails=()=>{
@@ -18,8 +18,6 @@ const Card=(props)=>{
         // dispatch(setProduct(product))
         dispatch(setCartItem(product))
     }
-    // const cartItem = useSelector((state)=>state.cartItem.cartItem)
-    // console.log(cartItem)
     return (
         <div className="card">
             <div className="card-image" onClick={productDetails}>
@@ -29,7 +27,8 @@ const Card=(props)=>{
                 <p className="card-text">{product.description.replace(/<[^>]*>?/gm, '')}</p>
                 <hr/>
                 <div className="card-lower">
-                    <FontAwesomeIcon icon="cart-plus" size="lg" onClick={()=>addProductToCart(product)}/>
+                    <FontAwesomeIcon icon="cart-plus" className={isAddedToCart(product) ? `added-cart` : `not-added-cart`} size="lg" onClick=
+                    {()=>isAddedToCart(product)?removeProductFromCart(product):addProductToCart(product)}/>
                     <h6 className="card-title">{product.price.formatted_with_symbol}</h6>
                 </div>
             </div>

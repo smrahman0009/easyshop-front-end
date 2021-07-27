@@ -8,17 +8,21 @@ import { counter } from "@fortawesome/fontawesome-svg-core";
 
 const Item = (props) =>{
     const dispatch = useDispatch()
-    const {item,removeProductFromCart} = props
+    const {item,removeProductFromCart,incCartItemQty,decCartItemQty} = props
     const [count,setCount] = React.useState(1) 
-    const handleIncrement = (price) => {
-       setCount(count+1)
-       dispatch(incTotalPrice(price))
+    const handleIncrement = (item) => {
+        const price = item.price.raw
+        incCartItemQty(item)
+        setCount(count+1)
+        dispatch(incTotalPrice(price))
     }
     
-    const handleDecrement = (price) => {
+    const handleDecrement = (item) => {
+        const price  = item.price.raw
         if(count>1){
             setCount(count-1)
             dispatch(decTotalPrice(price))
+            decCartItemQty(item)
         }
     }
 
@@ -31,9 +35,9 @@ const Item = (props) =>{
             <div className="cart-product-info">
                 <div className="pdt-qnty">
                     <input type="text" className="single-price" value={item.price.formatted_with_symbol} disabled/>
-                    <button onClick={()=>handleDecrement(item.price.raw)}>-</button>
-                    <input type="number" name="cart_pdt" id="cart-pdt" min="1" max="9" value={count} disabled/>
-                    <button onClick={()=>handleIncrement(item.price.raw)}>+</button>
+                    <button onClick={()=>handleDecrement(item)}>-</button>
+                    <input type="number" name="cart_pdt" id="cart-pdt" min="1" max="9" value={item.cart_quantity} disabled/>
+                    <button onClick={()=>handleIncrement(item)}>+</button>
                     <p className="equal">=</p>
                     <input type="text" className="total-price" value={count*item.price.raw} disabled/>
                 </div>

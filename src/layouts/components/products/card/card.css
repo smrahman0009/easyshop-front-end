@@ -22,3 +22,10 @@ hr{
     display: flex;
     justify-content: space-between;
 }
+
+.card-lower .not-added-cart{
+    color: black ;
+}
+.card-lower .added-cart{
+    color: tomato;
+}

@@ -29,26 +29,62 @@ const Home=()=>{
     const addProductToCart=(item)=>{
         const flag = cartItems.includes(item)
         if(!flag){
+            item.cart_quantity = 1
             setCartItems(cartItems.concat(item))
             dispatch(incTotalPrice(item.price.raw))
+            console.log(item)
         }
       
     }
     const removeProductFromCart=(item,totalPrice)=>{
+        if(totalPrice){
+            dispatch(decTotalPrice(totalPrice))
+        }else{
+            const tempItem  = cartItems.filter(product=>product==item)
+            console.log(tempItem)
+            dispatch(decTotalPrice(tempItem[0].price.raw*tempItem[0].cart_quantity))
+        }
         setCartItems(cartItems.filter(cartItem=> item !== cartItem))
-        dispatch(decTotalPrice(totalPrice))
+    }
+
+    const isAddedToCart=(item)=>{
+        return cartItems.includes(item)
+    }
+
+    const incCartItemQty=(item)=>{
+        const itemIndex = cartItems.indexOf(item)
+        item.cart_quantity += 1
+        cartItems[itemIndex] = item
+        setCartItems(cartItems)
+    }
+
+    const decCartItemQty=(item)=>{
+        const itemIndex = cartItems.indexOf(item)
+        item.cart_quantity -= 1
+        cartItems[itemIndex] = item
+        setCartItems(cartItems)
     }
 
     return (
         <>
         <Navbar/>
         <Login/>
-        <Cart cartItems={cartItems} removeProductFromCart={removeProductFromCart}/>
+        <Cart 
+            cartItems={cartItems}
+            removeProductFromCart={removeProductFromCart}
+            incCartItemQty={incCartItemQty}
+            decCartItemQty={decCartItemQty}
+        />
         <Switch>
             <Route exact path="/">
                 <Carousel/>
                 <Services/>
-                <ProductList addProductToCart={addProductToCart} products={products}/>
+                <ProductList 
+                    addProductToCart={addProductToCart}
+                    products={products} 
+                    isAddedToCart={isAddedToCart} 
+                    removeProductFromCart={removeProductFromCart}
+                  />
             </Route>
             <Route path="/details/">
                 <Details/>

@@ -7,14 +7,14 @@ import "./Cart.css"
 import Item from "./Item"
 
 const Cart=(props)=>{
-    const {cartItems,removeProductFromCart} = props
+    const {cartItems,removeProductFromCart,incCartItemQty,decCartItemQty} = props
   
     const showCart=()=>{
         document.querySelector(".cart-container").classList.toggle("cart-container-show")
     }
     
     const totalPrice = useSelector((state)=>state.totalPrice.price)
-    console.log(totalPrice)
+    // console.log(totalPrice)
     return(
         
         <div className="cart-container">
@@ -26,7 +26,10 @@ const Cart=(props)=>{
             </div>
             {
             cartItems.map(item=>(
-                 <Item item={item} removeProductFromCart={removeProductFromCart}/>
+                 <Item item={item} 
+                 removeProductFromCart={removeProductFromCart}
+                 incCartItemQty={incCartItemQty}
+                 decCartItemQty={decCartItemQty}/>
             ))
             }
             <div className="cart-totall-price">
