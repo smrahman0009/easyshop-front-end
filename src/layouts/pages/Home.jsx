@@ -32,7 +32,7 @@ const Home=()=>{
             item.cart_quantity = 1
             setCartItems(cartItems.concat(item))
             dispatch(incTotalPrice(item.price.raw))
-            console.log(item)
+            // console.log(item)
         }
       
     }
@@ -41,7 +41,7 @@ const Home=()=>{
             dispatch(decTotalPrice(totalPrice))
         }else{
             const tempItem  = cartItems.filter(product=>product==item)
-            console.log(tempItem)
+            // console.log(tempItem)
             dispatch(decTotalPrice(tempItem[0].price.raw*tempItem[0].cart_quantity))
         }
         setCartItems(cartItems.filter(cartItem=> item !== cartItem))
@@ -52,17 +52,32 @@ const Home=()=>{
     }
 
     const incCartItemQty=(item)=>{
-        const itemIndex = cartItems.indexOf(item)
-        item.cart_quantity += 1
-        cartItems[itemIndex] = item
-        setCartItems(cartItems)
+        setCartItems(
+                cartItems.filter(
+                    cartItem=>{
+                        if(cartItem == item){
+                            cartItem.cart_quantity += 1
+                        }
+                        return cartItem
+                    }
+                )
+            )
+        // const itemIndex = cartItems.indexOf(item)
+        // item.cart_quantity += 1
+        // cartItems[itemIndex] = item
     }
 
     const decCartItemQty=(item)=>{
-        const itemIndex = cartItems.indexOf(item)
-        item.cart_quantity -= 1
-        cartItems[itemIndex] = item
-        setCartItems(cartItems)
+        setCartItems(
+            cartItems.filter(
+                cartItem=>{
+                    if(cartItem == item){
+                        cartItem.cart_quantity -= 1
+                    }
+                    return cartItem
+                }
+            )
+        )
     }
 
     return (

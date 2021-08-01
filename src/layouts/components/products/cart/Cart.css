@@ -40,6 +40,21 @@ input[type=number] {
 .cart-totall-price input {
     border-style: none;
 }
+.cart-container .cart-checkout{
+    background-color: #F96246;
+    color: white;
+    width: 300px;
+    position: relative;
+    margin: 10px auto;
+    padding: 8px;
+    border-radius: 50px;
+    text-align: center;
+    /* line-height: 1.2; */
+    font-size: 20px;
+}
+.cart-container .cart-checkout *{
+    cursor: pointer !important;
+}
 .cart-container-show{
     transform: translateX(0px);
 }

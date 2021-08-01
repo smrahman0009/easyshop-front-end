@@ -37,6 +37,9 @@ const Cart=(props)=>{
                 <label for="totall-price"><h6>Total Price</h6></label>
                 <input type="text" id="totall-price" value={`$${totalPrice}`} disabled/>
             </div>
+            <div className="cart-checkout">
+                Checkout
+            </div>
         </div>
     )
 }

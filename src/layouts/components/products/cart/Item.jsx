@@ -19,11 +19,12 @@ const Item = (props) =>{
     
     const handleDecrement = (item) => {
         const price  = item.price.raw
-        if(count>1){
+        if(item.cart_quantity>1){
             setCount(count-1)
             dispatch(decTotalPrice(price))
             decCartItemQty(item)
         }
+        
     }
 
   
@@ -39,10 +40,10 @@ const Item = (props) =>{
                     <input type="number" name="cart_pdt" id="cart-pdt" min="1" max="9" value={item.cart_quantity} disabled/>
                     <button onClick={()=>handleIncrement(item)}>+</button>
                     <p className="equal">=</p>
-                    <input type="text" className="total-price" value={count*item.price.raw} disabled/>
+                    <input type="text" id="item-price" value={item.cart_quantity*item.price.raw} disabled/>
                 </div>
             </div>
-        <div className="pdt-remove" onClick={()=>removeProductFromCart(item,count*item.price.raw)}><FontAwesomeIcon icon="trash-alt" className="checkout-icon" size="2x"/></div>
+        <div className="pdt-remove" onClick={()=>removeProductFromCart(item,item.cart_quantity*item.price.raw)}><FontAwesomeIcon icon="trash-alt" className="checkout-icon" size="2x"/></div>
         </div>
    
     return(
