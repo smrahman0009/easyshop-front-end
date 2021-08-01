@@ -14,7 +14,8 @@ const Card=(props)=>{
     const history = useHistory() 
     const dispatch = useDispatch()
     const productDetails=()=>{
-        // history.push("/details/")
+        history.push("/details/")
+        window.scroll(0,0)
         // dispatch(setProduct(product))
         dispatch(setCartItem(product))
     }
