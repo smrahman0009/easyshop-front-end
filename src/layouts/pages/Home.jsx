@@ -62,9 +62,6 @@ const Home=()=>{
                     }
                 )
             )
-        // const itemIndex = cartItems.indexOf(item)
-        // item.cart_quantity += 1
-        // cartItems[itemIndex] = item
     }
 
     const decCartItemQty=(item)=>{
@@ -82,7 +79,7 @@ const Home=()=>{
 
     return (
         <>
-        <Navbar/>
+        <Navbar cartItems={cartItems} />
         <Login/>
         <Cart 
             cartItems={cartItems}
