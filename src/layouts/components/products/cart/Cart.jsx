@@ -7,7 +7,7 @@ import "./Cart.css"
 import Item from "./Item"
 
 const Cart=(props)=>{
-    const {cartItems,removeProductFromCart,incCartItemQty,decCartItemQty} = props
+    const {cart} = props
   
     const showCart=()=>{
         document.querySelector(".cart-container").classList.toggle("cart-container-show")
@@ -25,17 +25,17 @@ const Cart=(props)=>{
                 </div>
             </div>
             {
-            cartItems.map(item=>(
-                 <Item item={item} 
-                 removeProductFromCart={removeProductFromCart}
-                 incCartItemQty={incCartItemQty}
-                 decCartItemQty={decCartItemQty}/>
+            cart.line_items.map(lineItem=>(
+                 <Item 
+                    item={lineItem}
+                    key={lineItem.id} 
+                  />
             ))
             }
             <div className="cart-totall-price">
 
-                <label for="totall-price"><h6>Total Price</h6></label>
-                <input type="text" id="totall-price" value={`$${totalPrice}`} disabled/>
+                <label for="totall-price"><h6>Subtotal Price</h6></label>
+                <input type="text" id="totall-price" value={cart.subtotal.formatted_with_symbol} disabled/>
             </div>
             <div className="cart-checkout">
                 Checkout

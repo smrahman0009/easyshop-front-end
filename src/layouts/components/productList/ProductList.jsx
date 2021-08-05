@@ -4,7 +4,7 @@ import "./ProductList.css";
 import Card from "../products/card/card"
 
 const ProductList = (props) =>{
-    const {addProductToCart,products,isAddedToCart,removeProductFromCart} = props
+    const {products,handleAddToCart} = props
 
     // console.log(products)
     return(
@@ -13,10 +13,10 @@ const ProductList = (props) =>{
                 {
                     products.map(
                         (product)=>{
-                           return <Card key={product.id} product={product} 
-                           addProductToCart={addProductToCart} 
-                           isAddedToCart={isAddedToCart} 
-                           removeProductFromCart={removeProductFromCart}
+                           return <Card
+                                key={product.id} 
+                                product={product} 
+                                handleAddToCart={handleAddToCart}
                          />
                         }
                     )

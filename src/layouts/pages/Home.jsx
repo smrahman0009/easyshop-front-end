@@ -14,88 +14,53 @@ import Create from "../components/user/create/Create"
 import SignUp from "../components/user/signup/SignUp"
 import Services from "../components/services/Services"
 import { useDispatch } from "react-redux";
+import Commerce from '@chec/commerce.js';
+
 const Home=()=>{
-    const [products,setProducts] = React.useState([])
+
     const dispatch = useDispatch()
+    const [products,setProducts] = React.useState([])
+    const [cartItems,setCartItems] = React.useState([])
+    const [cart,setCart] = React.useState({})
     const fetchProducts = async () => {
         const {data} = await commerce.products.list()
         setProducts(data)
     }
+    const fetchCart = async () =>{
+        const cart = await commerce.cart.retrieve()
+        setCart(cart)
+    }
     useEffect(()=>{
         fetchProducts()
+        fetchCart()
     },[])
-    
-    const [cartItems,setCartItems] = React.useState([])
-    const addProductToCart=(item)=>{
-        const flag = cartItems.includes(item)
-        if(!flag){
-            item.cart_quantity = 1
-            setCartItems(cartItems.concat(item))
-            dispatch(incTotalPrice(item.price.raw))
-            // console.log(item)
-        }
-      
-    }
-    const removeProductFromCart=(item,totalPrice)=>{
-        if(totalPrice){
-            dispatch(decTotalPrice(totalPrice))
-        }else{
-            const tempItem  = cartItems.filter(product=>product==item)
-            // console.log(tempItem)
-            dispatch(decTotalPrice(tempItem[0].price.raw*tempItem[0].cart_quantity))
-        }
-        setCartItems(cartItems.filter(cartItem=> item !== cartItem))
+
+    console.log(cart)
+
+    // Integerate Commerce Cart functionalities
+
+    const handleAddToCart = async (productId,quantity)=>{
+        const item = await commerce.cart.add(productId,quantity)
+        setCart(item.cart)
+        console.log(cart)
     }
 
-    const isAddedToCart=(item)=>{
-        return cartItems.includes(item)
-    }
-
-    const incCartItemQty=(item)=>{
-        setCartItems(
-                cartItems.filter(
-                    cartItem=>{
-                        if(cartItem == item){
-                            cartItem.cart_quantity += 1
-                        }
-                        return cartItem
-                    }
-                )
-            )
-    }
-
-    const decCartItemQty=(item)=>{
-        setCartItems(
-            cartItems.filter(
-                cartItem=>{
-                    if(cartItem == item){
-                        cartItem.cart_quantity -= 1
-                    }
-                    return cartItem
-                }
-            )
-        )
-    }
 
     return (
         <>
-        <Navbar cartItems={cartItems} />
+        <Navbar totalItems={cart.total_items} />
         <Login/>
-        <Cart 
-            cartItems={cartItems}
-            removeProductFromCart={removeProductFromCart}
-            incCartItemQty={incCartItemQty}
-            decCartItemQty={decCartItemQty}
-        />
+        {
+           Object.keys(cart).length > 0 &&  <Cart cart={cart}/>
+        }
+       
         <Switch>
             <Route exact path="/">
                 <Carousel/>
                 <Services/>
                 <ProductList 
-                    addProductToCart={addProductToCart}
                     products={products} 
-                    isAddedToCart={isAddedToCart} 
-                    removeProductFromCart={removeProductFromCart}
+                    handleAddToCart={handleAddToCart}
                   />
             </Route>
             <Route path="/details/">
