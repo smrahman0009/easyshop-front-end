@@ -7,7 +7,7 @@ import "./Cart.css"
 import Item from "./Item"
 
 const Cart=(props)=>{
-    const {cart} = props
+    const {cart,handleUpdateCartQty,handleRemoveFromCart} = props
   
     const showCart=()=>{
         document.querySelector(".cart-container").classList.toggle("cart-container-show")
@@ -28,7 +28,9 @@ const Cart=(props)=>{
             cart.line_items.map(lineItem=>(
                  <Item 
                     item={lineItem}
-                    key={lineItem.id} 
+                    key={lineItem.id}
+                    handleUpdateCartQty={handleUpdateCartQty}
+                    handleRemoveFromCart={handleRemoveFromCart} 
                   />
             ))
             }

@@ -7,17 +7,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { counter } from "@fortawesome/fontawesome-svg-core";
 
 const Item = (props) =>{
-    const dispatch = useDispatch()
-    const {item} = props
-    const [count,setCount] = React.useState(1) 
-    const handleIncrement = (item) => {
-        const price = item.price.raw
-        setCount(count+1)
+    const {item,handleUpdateCartQty,handleRemoveFromCart} = props
+
+    const handleIncrement = (itemId,quantity) => {
+        handleUpdateCartQty(itemId,quantity)
     }
     
-    const handleDecrement = (item) => {
-        const price  = item.price.raw
+    const handleDecrement = (itemId,quantity) => {
+        handleUpdateCartQty(itemId,quantity)
         
+    }
+
+    const removeProductFromCart=(itemId)=>{
+        handleRemoveFromCart(itemId)
     }
 
   
@@ -29,14 +31,18 @@ const Item = (props) =>{
             <div className="cart-product-info">
                 <div className="pdt-qnty">
                     <input type="text" className="single-price" value={item.price.formatted_with_symbol} disabled/>
-                    <button onClick={()=>handleDecrement(item)}>-</button>
+                    <button onClick={()=>handleDecrement(item.id,item.quantity-1)}>-</button>
                     <input type="number" name="cart_pdt" id="cart-pdt" min="1" max="9" value={item.quantity} disabled/>
-                    <button onClick={()=>handleIncrement(item)}>+</button>
+                    <button onClick={()=>handleIncrement(item.id,item.quantity+1)}>+</button>
                     <p className="equal">=</p>
                     <input type="text" id="item-price" value={item.line_total.formatted_with_symbol} disabled/>
                 </div>
             </div>
-        <div className="pdt-remove"><FontAwesomeIcon icon="trash-alt" className="checkout-icon" size="2x"/></div>
+        <div className="pdt-remove">
+            <FontAwesomeIcon icon="trash-alt" className="checkout-icon" size="2x"
+                onClick={()=>removeProductFromCart(item.id)}                    
+            />
+            </div>
         </div>
    
     return(

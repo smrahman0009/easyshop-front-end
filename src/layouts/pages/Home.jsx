@@ -17,10 +17,7 @@ import { useDispatch } from "react-redux";
 import Commerce from '@chec/commerce.js';
 
 const Home=()=>{
-
-    const dispatch = useDispatch()
     const [products,setProducts] = React.useState([])
-    const [cartItems,setCartItems] = React.useState([])
     const [cart,setCart] = React.useState({})
     const fetchProducts = async () => {
         const {data} = await commerce.products.list()
@@ -35,23 +32,38 @@ const Home=()=>{
         fetchCart()
     },[])
 
-    console.log(cart)
+    // console.log(cart)
 
     // Integerate Commerce Cart functionalities
 
     const handleAddToCart = async (productId,quantity)=>{
         const item = await commerce.cart.add(productId,quantity)
         setCart(item.cart)
-        console.log(cart)
+        // console.log(cart)
     }
 
+    const handleUpdateCartQty = async (lineItemId,quantity)=>{
+        const item = await commerce.cart.update(lineItemId,{quantity})
+        setCart(item.cart)
+        // console.log(lineItemId,quantity)
+    }
+
+    const handleRemoveFromCart = async (lineItemId)=>{
+        const item = await commerce.cart.remove(lineItemId)
+        setCart(item.cart)
+    }
 
     return (
         <>
         <Navbar totalItems={cart.total_items} />
         <Login/>
         {
-           Object.keys(cart).length > 0 &&  <Cart cart={cart}/>
+           Object.keys(cart).length > 0 &&
+            <Cart 
+                cart={cart} 
+                handleUpdateCartQty={handleUpdateCartQty}
+                handleRemoveFromCart={handleRemoveFromCart}
+            />
         }
        
         <Switch>
