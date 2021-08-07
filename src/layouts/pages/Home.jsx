@@ -13,6 +13,8 @@ import Login from "../components/login/Login";
 import Create from "../components/user/create/Create"
 import SignUp from "../components/user/signup/SignUp"
 import Services from "../components/services/Services"
+import Checkout from "../components/checkout/Checkout";
+
 import { useDispatch } from "react-redux";
 import Commerce from '@chec/commerce.js';
 
@@ -32,7 +34,7 @@ const Home=()=>{
         fetchCart()
     },[])
 
-    // console.log(cart)
+    console.log(cart)
 
     // Integerate Commerce Cart functionalities
 
@@ -83,6 +85,9 @@ const Home=()=>{
             </Route>
             <Route path="/user/auth/signup">
                 <SignUp/>
+            </Route>
+            <Route path="/checkout">
+                <Checkout cart={cart}/>
             </Route>
         </Switch>
         <Footer/>

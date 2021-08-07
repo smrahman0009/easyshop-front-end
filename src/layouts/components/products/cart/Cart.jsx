@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import "./Cart.css"
 import Item from "./Item"
+import { Link } from "react-router-dom";
 
 const Cart=(props)=>{
     const {cart,handleUpdateCartQty,handleRemoveFromCart} = props
@@ -39,9 +40,9 @@ const Cart=(props)=>{
                 <label for="totall-price"><h6>Subtotal Price</h6></label>
                 <input type="text" id="totall-price" value={cart.subtotal.formatted_with_symbol} disabled/>
             </div>
-            <div className="cart-checkout">
+            <Link className="cart-checkout" to="/checkout">
                 Checkout
-            </div>
+            </Link>
         </div>
     )
 }
