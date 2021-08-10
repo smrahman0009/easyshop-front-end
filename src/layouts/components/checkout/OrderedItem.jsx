@@ -2,7 +2,7 @@ import "./checkout.css"
 
 const OrderedItem = (props)=>{
     const {item} = props
-    console.log(item)
+    // console.log(item)
     return (
         <div className="ordered-item">
             <div className="item-container">

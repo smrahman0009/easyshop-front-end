@@ -38,6 +38,10 @@ const Checkout = (props)=>{
                 {cart.line_items && cart.line_items.map((item)=>(
                     <OrderedItem item={item}/>
                 ))}
+                <div className="order-subtotal">
+                    <h5>Subtotal:</h5>
+                    <h5>{cart.subtotal && cart.subtotal.formatted_with_code}</h5>
+                </div>
             </div>
         </div>
     )
