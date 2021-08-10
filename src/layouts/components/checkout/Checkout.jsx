@@ -3,6 +3,7 @@ import { commerce } from "../../../lib/Commerce"
 import "./checkout.css"
 import CheckoutFormTemplate from "./CheckoutFormTemplate"
 import CheckoutForm from "./CheckoutForm"
+import OrderedItem from "./OrderedItem"
 
 const Checkout = (props)=>{
    
@@ -14,6 +15,7 @@ const Checkout = (props)=>{
             setCheckoutToken(token)
         }
     }
+    // console.log(cart)
     // console.log(CheckoutFormTemplate)
     return (
         <div className="checkout-container">
@@ -30,7 +32,13 @@ const Checkout = (props)=>{
                 </div>
 
                 <button onClick={generateCheckoutToken}>Generate Token</button>
-        </form>
+            </form>
+            <div className="order-summary">
+                <h4>Order Summary</h4>
+                {cart.line_items && cart.line_items.map((item)=>(
+                    <OrderedItem item={item}/>
+                ))}
+            </div>
         </div>
     )
        

@@ -2,7 +2,7 @@ import "./checkout.css"
 
 const CheckoutForm = (props)=>{
     const {formField} = props
-    console.log(formField)
+    // console.log(formField)
     return (
         <>
             {
