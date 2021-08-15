@@ -21,39 +21,45 @@ import Commerce from '@chec/commerce.js';
 const Home=()=>{
     const [products,setProducts] = React.useState([])
     const [cart,setCart] = React.useState({})
-    const fetchProducts = async () => {
-        const {data} = await commerce.products.list()
-        setProducts(data)
-    }
-    const fetchCart = async () =>{
-        const cart = await commerce.cart.retrieve()
-        setCart(cart)
-    }
+    const [checkoutToken,setCheckoutToken] = React.useState({})
+
     useEffect(()=>{
+        const fetchProducts = async () => {
+            const {data} = await commerce.products.list()
+            setProducts(data)
+        }
+        const fetchCart = async () =>{
+            const cart = await commerce.cart.retrieve()
+            setCart(cart)
+        }
         fetchProducts()
         fetchCart()
     },[])
 
-    console.log(cart)
-
-    // Integerate Commerce Cart functionalities
 
     const handleAddToCart = async (productId,quantity)=>{
         const item = await commerce.cart.add(productId,quantity)
         setCart(item.cart)
-        // console.log(cart)
     }
 
     const handleUpdateCartQty = async (lineItemId,quantity)=>{
         const item = await commerce.cart.update(lineItemId,{quantity})
         setCart(item.cart)
-        // console.log(lineItemId,quantity)
     }
 
     const handleRemoveFromCart = async (lineItemId)=>{
         const item = await commerce.cart.remove(lineItemId)
         setCart(item.cart)
     }
+
+    useEffect(()=>{
+        const generateCheckoutToken = async(cartId) =>{
+            const token = await commerce.checkout.generateToken(cartId,{type:'cart'})
+            setCheckoutToken(token)
+        }
+        generateCheckoutToken(cart.id)
+    },[cart.id])
+    // console.log(checkoutToken)
 
     return (
         <>
@@ -87,7 +93,7 @@ const Home=()=>{
                 <SignUp/>
             </Route>
             <Route path="/checkout">
-                <Checkout cart={cart}/>
+                {checkoutToken && <Checkout cart={cart} checkoutTokenId={checkoutToken.id}/>}
             </Route>
         </Switch>
         <Footer/>

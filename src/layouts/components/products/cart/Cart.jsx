@@ -14,7 +14,6 @@ const Cart=(props)=>{
         document.querySelector(".cart-container").classList.toggle("cart-container-show")
     }
     
-    const totalPrice = useSelector((state)=>state.totalPrice.price)
     // console.log(totalPrice)
     return(
         

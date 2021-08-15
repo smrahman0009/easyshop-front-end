@@ -7,7 +7,7 @@ const CheckoutFormTemplate = [
         id:`first-name`,
         name:`first-name`,
         placeholder:`First Name`,
-        value:`XXXXX`
+        value:`Jane`
     }
     ,
     {
@@ -18,7 +18,7 @@ const CheckoutFormTemplate = [
         id:`last-name`,
         name:`last-name`,
         placeholder:`Last Name`,
-        value:`XXXXX`
+        value:`Doe`
     }
     ,
     {
@@ -29,7 +29,7 @@ const CheckoutFormTemplate = [
         id:`email`,
         name:`email`,
         placeholder:`Enter Your Email`,
-        value:`XXXXX`
+        value:`janedoe@email.com`
     }
     ,
     {
@@ -40,18 +40,38 @@ const CheckoutFormTemplate = [
         id:`shipping-name`,
         name:`shipping-name`,
         placeholder:`Enter Your Full Name`,
-        value:`XXXXX`
+        value:`Jane Doe`
     }
     ,
     {
         checkoutSubheading:``,
-        htmlFor:`shipping-name`,
-        lbel:`City Name`,
+        htmlFor:`shipping-street`,
+        lbel:`Shipping Street`,
+        type:`text`,
+        id:`shipping-street`,
+        name:`shipping-street`,
+        placeholder:`Enter Your Street Name`,
+        value:`123 Fake St`
+    },
+    {
+        checkoutSubheading:``,
+        htmlFor:`shipping-city`,
+        lbel:`Shipping Street`,
         type:`text`,
         id:`shipping-city`,
         name:`shipping-city`,
         placeholder:`Enter Your City Name`,
-        value:`XXXXX`
+        value:`San Francisco`
+    },
+    {
+        checkoutSubheading:``,
+        htmlFor:`shipping-state`,
+        lbel:`Shipping State`,
+        type:`text`,
+        id:`shipping-state`,
+        name:`shipping-state`,
+        placeholder:`Enter Your State Name`,
+        value:`CA`
     }
     ,
     {
@@ -62,7 +82,18 @@ const CheckoutFormTemplate = [
         id:`shipping-postal-zip-code`,
         name:`shipping-postal-zip-code`,
         placeholder:`Enter your postal / zip code`,
-        value:`XXXXX`
+        value:`94107`
+    }
+    ,
+    {
+        checkoutSubheading:``,
+        htmlFor:`shipping-country`,
+        lbel:`Shipping Country`,
+        type:`text`,
+        id:`shipping-country`,
+        name:`shipping-country`,
+        placeholder:`Enter your Shipping Country`,
+        value:`US`
     }
     ,
     {
@@ -73,7 +104,7 @@ const CheckoutFormTemplate = [
         id:`card-number`,
         name:`card-number`,
         placeholder:`Enter your card number`,
-        value:`XXXXX`
+        value:`4242 4242 4242 4242`
     },
     {
         checkoutSubheading:``,
@@ -83,7 +114,7 @@ const CheckoutFormTemplate = [
         id:`exp-month`,
         name:`exp-month`,
         placeholder:`Expiary month`,
-        value:`XXXXX`
+        value:`11`
     },
     {
         checkoutSubheading:``,
@@ -93,7 +124,7 @@ const CheckoutFormTemplate = [
         id:`exp-year`,
         name:`exp-year`,
         placeholder:`Expiary year`,
-        value:`XXXXX`
+        value:`2023`
     },
     {
         checkoutSubheading:``,
@@ -103,8 +134,50 @@ const CheckoutFormTemplate = [
         id:`ccv`,
         name:`ccv`,
         placeholder:`CCV`,
-        value:`XXXXX`
+        value:`123`
+    },
+    {
+        checkoutSubheading:``,
+        htmlFor:`billing-postal-zip-code`,
+        lbel:`Postal Zipcode`,
+        type:`text`,
+        id:`billing-postal-zip-code`,
+        name:`billing-postal-zip-code`,
+        placeholder:`Postal Zipcode`,
+        value:`94107`
     }
-    
+    ,
+    {
+        checkoutSubheading:`Shipping Country`,
+        htmlFor:`customer-shipping-country`,
+        lbel:`Select Country`,
+        type:`select-option`,
+        id:`customer-shipping-country`,
+        name:`customer-shipping-country`,
+        placeholder:`Select Country`,
+        value:``
+    }
+    ,
+    {
+        checkoutSubheading:`Shipping Subdivisions`,
+        htmlFor:`customer-shipping-subdivision`,
+        lbel:`Select Subdivision`,
+        type:`select-option`,
+        id:`customer-shipping-subdivision`,
+        name:`customer-shipping-subdivision`,
+        placeholder:`Select subdivision`,
+        value:``
+    }
+    ,
+    {
+        checkoutSubheading:`Shipping Options`,
+        htmlFor:`customer-shipping-option`,
+        lbel:`Select Option`,
+        type:`select-option`,
+        id:`customer-shipping-option`,
+        name:`customer-shipping-option`,
+        placeholder:`Select option`,
+        value:``
+    }
 ]
 export default CheckoutFormTemplate;
